@@ -1,0 +1,39 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	padding: 20px;
+	> ul {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		font-size: 14px;
+		font-weight: 800;
+		margin: 0;
+		color: #217591;
+		> svg {
+			font-size: 18px;
+			color: #217591;
+			vertical-align: bottom;
+		}
+		> li:not(:last-child) {
+			margin-right: 10px;
+		}
+	}
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	}
+}
+.image {
+	border-radius: 50%;
+}
+.genre_heading {
+	color: #217591;
+}
+.bio {
+	font-size: 14px;
+	font-weight: 400;
+	color: #696969;
+}

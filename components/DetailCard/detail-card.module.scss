@@ -1,0 +1,25 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #ccc;
+	font-family: 'Inter', 'sans-serif';
+	padding: 24px;
+	> div:last-child {
+		margin: 0 auto;
+		margin-top: 15px;
+	}
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	}
+}
+.title {
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+}
+.details {
+	font-size: 14px;
+	font-weight: 400;
+	color: #111111;
+	flex: 1;
+}

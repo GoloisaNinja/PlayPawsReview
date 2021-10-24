@@ -1,0 +1,25 @@
+.container {
+	font-family: 'Inter', 'sans-serif';
+	padding: 20px;
+}
+.title {
+	font-size: 32px;
+	font-weight: 600;
+	text-align: center;
+}
+.subtitle {
+	font-size: 16px;
+	font-weight: 400;
+	text-align: center;
+	color: #696969;
+}
+.team_container {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 25px;
+	max-width: 90%;
+	margin: 0 auto;
+	@media (min-width: 600px) {
+		grid-template-columns: 1fr 1fr;
+	}
+}

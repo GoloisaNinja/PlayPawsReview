@@ -1,0 +1,23 @@
+.nav_header {
+	display: flex;
+	justify-content: space-between;
+	background-color: #217591;
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	padding: 10px 20px;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+.icon {
+	font-size: 30px;
+}
+.nav_end {
+	display: flex;
+	align-items: center;
+	> a:not(:last-child) {
+		margin-right: 15px;
+	}
+}
