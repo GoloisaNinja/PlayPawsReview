@@ -14,17 +14,14 @@
 	font-size: 22px;
 }
 .flexRow {
-	display: flex;
+	display: grid;
 	justify-content: center;
 	align-items: flex-start;
-}
-.preview_container {
-	display: flex;
-	width: 50%;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
 }
 .text {
 	margin: 0;
-	margin-left: 20px;
 	color: #696969;
 	font-weight: 600;
 }
