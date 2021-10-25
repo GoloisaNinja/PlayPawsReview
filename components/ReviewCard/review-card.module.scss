@@ -1,0 +1,36 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	font-family: 'Inter', sans-serif;
+	padding: 20px 10px;
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	}
+}
+.title {
+	font-size: 22px;
+}
+.flexRow {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	> :last-child {
+		max-width: 50%;
+	}
+}
+.text {
+	margin: 0 0 0 20px;
+	color: #696969;
+	font-weight: 600;
+}
+.date {
+	font-style: italic;
+	font-weight: 400;
+}
+.button_container {
+	display: flex;
+	flex: 1;
+}
