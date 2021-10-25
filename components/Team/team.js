@@ -4,7 +4,7 @@ import styles from './team.module.scss';
 
 function Team() {
 	return (
-		<section className={styles.container}>
+		<section className={styles.container} id='team'>
 			<h3 className={styles.title}>Meet our talented team</h3>
 			<h4 className={styles.subtitle}>
 				Our expert review team is comprised of Millie and Blueberry. They are

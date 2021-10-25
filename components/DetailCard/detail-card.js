@@ -6,11 +6,9 @@ function DetailCard({ title, details }) {
 		<div className={styles.card}>
 			<h3 className={styles.title}>{title}</h3>
 			<h5 className={styles.details}>{details}</h5>
-			<div>
-				<Button link={`/`} primary={true}>
-					Watch a review
-				</Button>
-			</div>
+			<Button link={`/`} primary={true}>
+				Watch a review
+			</Button>
 		</div>
 	);
 }

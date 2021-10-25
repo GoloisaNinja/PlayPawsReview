@@ -4,33 +4,57 @@
 	justify-content: center;
 	align-items: center;
 	border: 1px solid #ccc;
+	//padding: 20px;
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	}
+}
+.card_lower {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	padding: 20px;
 	> ul {
 		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
 		list-style: none;
 		padding: 0;
 		font-size: 14px;
 		font-weight: 800;
 		margin: 0;
 		color: #217591;
+		max-width: 95%;
 		> svg {
 			font-size: 18px;
 			color: #217591;
-			vertical-align: bottom;
+			margin-right: 3px;
 		}
 		> li:not(:last-child) {
 			margin-right: 10px;
 		}
+		> li {
+			margin-top: 2px;
+		}
 	}
-	&:hover {
-		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-	}
+}
+.title_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #217591;
+	color: #fff;
+	width: 100%;
+	margin-bottom: 20px;
 }
 .image {
 	border-radius: 50%;
 }
 .genre_heading {
 	color: #217591;
+	margin-top: 0;
 }
 .bio {
 	font-size: 14px;

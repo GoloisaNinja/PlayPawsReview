@@ -17,7 +17,7 @@ const teamDetails = [
 		image: '/images/blue.jpg',
 		altImage: `an amazing picture of a blue French Bulldog named Blueberry doing a professional pose for the camera`,
 		name: 'Blueberry',
-		genres: ['Comedies', 'Romances', 'Horror'],
+		genres: ['Comedy', 'Romance', 'Horror'],
 		bio: `Blueberry is quite a bit older than her upstart counterpart. 
     As such, she is less inclined to be impressed by your lame indie movie
     about the benefits of friendship. On the other hand, there's very little
