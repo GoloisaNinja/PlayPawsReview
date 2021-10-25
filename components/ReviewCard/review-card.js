@@ -17,9 +17,9 @@ function ReviewCard({ type, id, preview_text, reviewed_on }) {
 					src={`${baseImageURL}${details.poster_path}`}
 					width={120}
 					height={180}
-					alt=''
+					alt={`movie poster for ${details.title}`}
 				/>
-				<div>
+				<div className={styles.preview_container}>
 					<h5 className={styles.text}>{preview_text}</h5>
 				</div>
 			</div>

@@ -12,7 +12,7 @@ const reviewDetails = [
 		id: 2,
 		media_id: 1359,
 		media_type: `movie`,
-		preview_text: `One of mummers' favorites, the doggos go dark in this review of 
+		preview_text: `One of mummers' favourites, the doggos go dark in this review of 
     the classic thriller American Psycho. Millie and Blueberry will be rating more
      than just the skin care routines, click below to watch!`,
 		reviewed_on_date: `28 October, 2021`,
@@ -21,9 +21,8 @@ const reviewDetails = [
 		id: 3,
 		media_id: 1091,
 		media_type: `movie`,
-		preview_text: `One of Millie's all-time favorites, John Carpenter's The Thing! It's a love/hate 
-    for Millie on this film as there are dogs, but well, guess you'll have to watch the review to find 
-    out. Click below to see how Millie and Blueberry rate this sci-fi horror classic!`,
+		preview_text: `One of Millie's all-time favourites, John Carpenter's The Thing! Isolated hoomans 
+		being crazy, what could be more entertaining? Click below to see how Millie and Blueberry rate this sci-fi horror classic!`,
 		reviewed_on_date: `29 October, 2021`,
 	},
 	{
