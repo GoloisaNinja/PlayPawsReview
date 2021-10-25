@@ -20,7 +20,7 @@ function ReviewCard({ type, id, preview_text, reviewed_on }) {
 					alt={`movie poster for ${details.title}`}
 				/>
 				<div className={styles.preview_container}>
-					<h5 className={styles.text}>{preview_text}</h5>
+					<h5 className={styles.preview_text}>{preview_text}</h5>
 				</div>
 			</div>
 			<h5 className={styles.date}>{`reviewed on ${reviewed_on}`}</h5>
