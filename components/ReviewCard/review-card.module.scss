@@ -17,7 +17,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
-	> :last-child {
+	> div:last-child {
 		max-width: 50%;
 	}
 }

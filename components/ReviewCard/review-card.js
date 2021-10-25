@@ -19,7 +19,9 @@ function ReviewCard({ type, id, preview_text, reviewed_on }) {
 					height={180}
 					alt=''
 				/>
-				<h5 className={styles.text}>{preview_text}</h5>
+				<div>
+					<h5 className={styles.text}>{preview_text}</h5>
+				</div>
 			</div>
 			<h5 className={styles.date}>{`reviewed on ${reviewed_on}`}</h5>
 			<div className={styles.button_container}>
