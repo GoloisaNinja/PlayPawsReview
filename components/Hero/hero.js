@@ -1,9 +1,11 @@
 import Button from '../Button/button';
 import ActionButton from '../ActionButton/action-button';
 import styles from './hero.module.scss';
+import smoothscroll from 'smoothscroll-polyfill';
 
 function Hero() {
 	const handleTeamScroll = () => {
+		smoothscroll.polyfill();
 		const target = document?.getElementById('team');
 		const subtractFromY = -55;
 		const y =
