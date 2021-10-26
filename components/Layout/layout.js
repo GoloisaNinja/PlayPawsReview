@@ -1,4 +1,5 @@
 import Header from '../Header/header';
+import Footer from '../Footer/footer';
 import styles from './layout.module.scss';
 
 function Layout({ children }) {
@@ -8,6 +9,7 @@ function Layout({ children }) {
 			<div className={styles.wrapper}>
 				<main>{children}</main>
 			</div>
+			<Footer />
 		</>
 	);
 }
