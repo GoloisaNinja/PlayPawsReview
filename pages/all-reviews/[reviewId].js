@@ -1,8 +1,9 @@
-import path from 'path';
-const fs = require('fs/promises');
+// import path from 'path';
+// const fs = require('fs/promises');
 //import fs from 'fs/promises';
 import Image from 'next/image';
 import Layout from '../../components/Layout/layout';
+import teamDetails from '../../data/team_detail.json';
 import reviewDetails from '../../data/review_detail';
 import styles from './[reviewId].module.scss';
 import axios from 'axios';
@@ -57,11 +58,12 @@ export async function getStaticProps(context) {
 	review['tmdbData'] = response.data;
 
 	// use filesystem to read the team data and provide a team object with photo and name
+	// this fails to build on netlify as netlify can find fs - will switch to import
 
-	const teamFilePath = path.join(process.cwd(), 'data', 'team_detail.json');
-	const teamData = await fs.readFile(teamFilePath);
-	const data = JSON.parse(teamData);
-	const team = data.team;
+	// const teamFilePath = path.join(process.cwd(), 'data', 'team_detail.json');
+	// const teamData = await fs.readFile(teamFilePath);
+	//const data = JSON.parse(teamData);
+	const team = teamDetails.team;
 	return {
 		props: { review, team },
 	};
