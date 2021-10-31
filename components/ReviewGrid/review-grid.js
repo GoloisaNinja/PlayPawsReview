@@ -1,15 +1,13 @@
 import ReviewCard from '../ReviewCard/review-card';
-import reviewDetails from '../../data/review_detail';
 import styles from './review-grid.module.scss';
 
-function ReviewGrid() {
+function ReviewGrid({ reviews }) {
 	return (
 		<div className={styles.grid}>
-			{reviewDetails.map((review) => (
+			{reviews.map((review) => (
 				<ReviewCard
 					key={review.id}
-					type={review.media_type}
-					id={review.media_id}
+					tmdb={review.tmdbData}
 					preview_text={review.preview_text}
 					reviewed_on={review.reviewed_on_date}
 				/>

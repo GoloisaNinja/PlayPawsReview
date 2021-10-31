@@ -12,18 +12,25 @@
 
 .grid_container {
 	display: grid;
-	grid-template-columns: repeat(2, 150px);
+	grid-template-columns: repeat(2, 125px);
 	width: 100%;
 	max-width: 1000px;
 	margin: 0 auto;
 	gap: 15px;
 	margin-bottom: 20px;
-	@media (min-width: 600px) {
+	@media (min-width: 365px) {
+		grid-template-columns: repeat(2, 150px);
+	}
+	@media (min-width: 615px) {
+		grid-template-columns: repeat(3, 175px);
+		gap: 0;
+	}
+	@media (min-width: 815px) {
 		grid-template-columns: repeat(4, 175px);
 		gap: 0;
 	}
-	@media (min-width: 800px) {
-		grid-template-columns: repeat(4, 250px);
+	@media (min-width: 1015px) {
+		grid-template-columns: repeat(4, 200px);
 		gap: 0;
 	}
 }

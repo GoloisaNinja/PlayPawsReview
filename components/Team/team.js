@@ -1,8 +1,9 @@
-import teamDetails from '../../data/team_detail';
+import teamDetails from '../../data/team_detail.json';
 import TeamCard from '../TeamCard/team-card';
 import styles from './team.module.scss';
 
 function Team() {
+	const team = teamDetails.team;
 	return (
 		<section className={styles.container} id='team'>
 			<h3 className={styles.title}>Meet our talented team</h3>
@@ -13,7 +14,7 @@ function Team() {
 				begging for treatos, and eating multiple dinners.
 			</h4>
 			<div className={styles.team_container}>
-				{teamDetails.map((teamMember) => (
+				{team.map((teamMember) => (
 					<TeamCard
 						key={teamMember.id}
 						name={teamMember.name}

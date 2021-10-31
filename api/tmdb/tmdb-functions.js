@@ -1,3 +1,6 @@
+// test of building my own hook - this will not be needed in final build as getStaticProps will be used to pass
+// review data from CMS and couple it with TMDB data - saved only for custom hook reminder
+
 import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 const apiKey = process.env.NEXT_PUBLIC_TMDB_APIKEY;
@@ -12,7 +15,6 @@ export const useTmdbApi = (type, media_id) => {
 		);
 		setDetails(response.data);
 		setIsLoading(false);
-		//return response.data;
 	}, [media_id, type]);
 	useEffect(() => {
 		getMedia();
