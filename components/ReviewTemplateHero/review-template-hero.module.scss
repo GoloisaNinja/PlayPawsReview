@@ -27,17 +27,8 @@
 }
 .button_group {
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	margin-top: 25px;
 	margin-bottom: 25px;
-	> a:last-child {
-		margin-top: 20px;
-		@media (min-width: 600px) {
-			margin-top: 0;
-			margin-left: 20px;
-		}
-	}
-	@media (min-width: 600px) {
-		flex-direction: row;
-	}
 }
