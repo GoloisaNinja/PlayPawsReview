@@ -1,5 +1,6 @@
 import path from 'path';
-import fs from 'fs/promises';
+const fs = require('fs/promises');
+//import fs from 'fs/promises';
 import Image from 'next/image';
 import Layout from '../../components/Layout/layout';
 import reviewDetails from '../../data/review_detail';
