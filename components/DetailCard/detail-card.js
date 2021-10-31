@@ -6,7 +6,7 @@ function DetailCard({ title, details }) {
 		<div className={styles.card}>
 			<h3 className={styles.title}>{title}</h3>
 			<h5 className={styles.details}>{details}</h5>
-			<Button link={`/`} primary={true}>
+			<Button link={`/all-reviews`} primary={true}>
 				Watch a review
 			</Button>
 		</div>

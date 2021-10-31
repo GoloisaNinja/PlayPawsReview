@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Inter', sans-serif;
+	margin-top: 50px;
+	padding: 10px 20px;
+}
+.title {
+	font-size: 50px;
+	color: #111111;
+	text-align: center;
+	@media (min-width: 800px) {
+		font-size: 75px;
+	}
+	@media (min-width: 1000px) {
+		font-size: 100px;
+	}
+}
+.grey_span {
+	color: #969696;
+}
+.blue_span {
+	color: #217591;
+}
+.subtitle {
+	color: #696969;
+	text-align: center;
+}

@@ -14,8 +14,7 @@ function Header() {
 			</div>
 			<div className={styles.nav_end}>
 				<Link href='/all-reviews'>Reviews</Link>
-				<Link href='/'>Forum</Link>
-				<Link href='/'>Requests</Link>
+				<Link href='/requests'>Requests</Link>
 			</div>
 		</header>
 	);

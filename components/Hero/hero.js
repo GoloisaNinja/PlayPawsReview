@@ -26,8 +26,7 @@ function Hero() {
 				<ActionButton handleClick={handleTeamScroll}>
 					Meet the doggos
 				</ActionButton>
-				{/* <Button link='/'>Meet the doggos</Button> */}
-				<Button link='/'>Request a movie review</Button>
+				<Button link='/requests#movie'>Request a movie review</Button>
 			</div>
 		</div>
 	);

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
 	TiSocialFacebookCircular,
 	TiSocialInstagram,
@@ -15,14 +16,24 @@ function Footer() {
 			<div className={styles.grid_container}>
 				<div className={styles.links}>
 					<h4 className={styles.title}>General</h4>
-					<p>Reviews</p>
-					<p>Forum</p>
-					<p>Join Newsletter</p>
+					<Link href='/all-reviews' passHref={true}>
+						<p>Reviews</p>
+					</Link>
+					<Link href='/requests' passHref={true}>
+						<p>All Requests</p>
+					</Link>
+					<Link href='/requests#newsletter' passHref={true}>
+						<p>Join Newsletter</p>
+					</Link>
 				</div>
 				<div className={styles.links}>
 					<h4 className={styles.title}>Contact</h4>
-					<p>Request Review</p>
-					<p>Contact Us</p>
+					<Link href='/requests#movie' passHref={true}>
+						<p>Request Review</p>
+					</Link>
+					<Link href='/requests#contact' passHref={true}>
+						<p>Contact Us</p>
+					</Link>
 				</div>
 				<div className={styles.links}>
 					<h4 className={styles.title}>API</h4>

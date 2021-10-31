@@ -2,7 +2,9 @@ import styles from './action-button.module.scss';
 
 function ActionButton(props) {
 	const handleClick = () => {
-		props.handleClick();
+		if (props.handleClick) {
+			props.handleClick();
+		}
 	};
 	return (
 		<button

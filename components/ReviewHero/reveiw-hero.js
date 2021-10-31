@@ -16,10 +16,10 @@ function ReviewHero() {
         `}
 			</h3>
 			<div className={styles.button_group}>
-				<Button link='/' primary={true}>
+				<Button link='/requests#newsletter' primary={true}>
 					Join the newsletter
 				</Button>
-				<Button link='/'>Request a movie review</Button>
+				<Button link='/requests#movie'>Request a movie review</Button>
 			</div>
 		</div>
 	);
