@@ -4,7 +4,6 @@
 import Image from 'next/image';
 import Layout from '../../components/Layout/layout';
 import teamDetails from '../../data/team_detail.json';
-import reviewDetails from '../../data/review_detail';
 import styles from './[reviewId].module.scss';
 import axios from 'axios';
 import ReviewTemplateHero from '../../components/ReviewTemplateHero/review-template-hero';
@@ -31,7 +30,7 @@ function ReviewTemplatePage({ review, team }) {
 				/>
 			</div>
 			<ReviewTemplateMainTop
-				impressions={review.first_impressions}
+				impressions={review.impressions.impressions}
 				team={team}
 			/>
 			<ReviewTemplateMainBottom />
@@ -43,10 +42,15 @@ export async function getStaticProps(context) {
 
 	// pairing the TMDB data with the imported review dummy data
 
+	const dbResponse = await axios.get(
+		`https://paws-backend.herokuapp.com/reviews`
+	);
+	const reviewArray = dbResponse.data;
+
 	const reviewId = params.reviewId;
 	let review = {};
-	reviewDetails.filter((reviewObj) => {
-		if (reviewObj.media_id.toString() === reviewId) {
+	reviewArray.filter((reviewObj) => {
+		if (reviewObj.media_id === reviewId) {
 			review = reviewObj;
 		}
 	});
@@ -70,8 +74,13 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-	const pathsWithParams = reviewDetails.map((review) => ({
-		params: { reviewId: review.media_id.toString() },
+	const dbResponse = await axios.get(
+		`https://paws-backend.herokuapp.com/reviews`
+	);
+	const reviewArray = dbResponse.data;
+
+	const pathsWithParams = reviewArray.map((review) => ({
+		params: { reviewId: review.media_id },
 	}));
 	return {
 		paths: pathsWithParams,

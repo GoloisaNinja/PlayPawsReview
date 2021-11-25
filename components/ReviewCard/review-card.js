@@ -19,7 +19,14 @@ function ReviewCard({ tmdb, preview_text, reviewed_on }) {
 					<h5 className={styles.preview_text}>{preview_text}</h5>
 				</div>
 			</div>
-			<h5 className={styles.date}>{`reviewed on ${reviewed_on}`}</h5>
+			<h5 className={styles.date}>
+				reviewed on{' '}
+				{reviewed_on === `0001-01-01` ? (
+					<span className={styles.coming_soon}>COMING SOON</span>
+				) : (
+					reviewed_on
+				)}
+			</h5>
 			<div className={styles.button_container}>
 				<Button link={`/all-reviews/${tmdb.id}`} primary={true}>
 					See full review

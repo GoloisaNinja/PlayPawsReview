@@ -9,7 +9,7 @@ function ReviewGrid({ reviews }) {
 					key={review.id}
 					tmdb={review.tmdbData}
 					preview_text={review.preview_text}
-					reviewed_on={review.reviewed_on_date}
+					reviewed_on={review.reviewed_on}
 				/>
 			))}
 		</div>

@@ -6,6 +6,7 @@
 	border: 1px solid #ccc;
 	font-family: 'Inter', sans-serif;
 	padding: 20px 10px;
+	background-color: #fafafa;
 	&:hover {
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	}
@@ -30,6 +31,10 @@
 	font-style: italic;
 	font-weight: 400;
 	flex: 1;
+}
+.coming_soon {
+	color: #217591;
+	font-style: normal;
 }
 .button_container {
 	display: flex;
