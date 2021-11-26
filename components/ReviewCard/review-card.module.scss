@@ -28,13 +28,19 @@
 	font-weight: 600;
 }
 .date {
-	font-style: italic;
 	font-weight: 400;
+	color: #808080;
 	flex: 1;
+}
+.days {
+	background-color: #217591;
+	border-radius: 50px;
+	color: #fff;
+	padding: 5px;
+	font-weight: bold;
 }
 .coming_soon {
 	color: #217591;
-	font-style: normal;
 }
 .button_container {
 	display: flex;

@@ -1,5 +1,5 @@
 .form_container {
-	margin-bottom: 50px;
+	width: 100%;
 	> form {
 		display: flex;
 		justify-content: flex-start;
@@ -18,6 +18,7 @@
 			-webkit-appearance: none;
 			background-color: #217591;
 			color: #fff;
+			cursor: pointer;
 			> svg {
 				font-size: 18px;
 				vertical-align: middle;

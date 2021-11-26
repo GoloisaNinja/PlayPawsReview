@@ -5,11 +5,23 @@ import ReviewGrid from '../../components/ReviewGrid/review-grid';
 import Search from '../../components/Search/search';
 import styles from './index.module.scss';
 import { SiDatadog } from 'react-icons/si';
+import { RiSortAsc, RiSortDesc } from 'react-icons/ri';
 import axios from 'axios';
 
 function AllReviews({ reviews }) {
-	const [visibleReviews, setVisibleReviews] = useState([...reviews]);
+	const [visibleReviews, setVisibleReviews] = useState([
+		...reviews.sort((a, b) => {
+			const aFormatted = new Date(a.reviewed_on);
+			const bFormatted = new Date(b.reviewed_on);
+			if (aFormatted > bFormatted) {
+				return 1;
+			} else {
+				return -1;
+			}
+		}),
+	]);
 	const [userSearchTerm, setUserSearchTerm] = useState('');
+	const [sortAsc, setSortAsc] = useState(false);
 	const handleSearch = (searchTerm) => {
 		const cleanSearchTerm = searchTerm.toLowerCase().trim();
 		setUserSearchTerm(cleanSearchTerm);
@@ -19,13 +31,57 @@ function AllReviews({ reviews }) {
 			)
 		);
 	};
+	const handleSort = () => {
+		setSortAsc(!sortAsc);
+		let sortedReviews = [];
+		if (!sortAsc) {
+			sortedReviews = visibleReviews.sort((a, b) => {
+				const aFormatted = new Date(a.reviewed_on);
+				const bFormatted = new Date(b.reviewed_on);
+				if (aFormatted < bFormatted) {
+					return 1;
+				} else {
+					return -1;
+				}
+			});
+		} else {
+			sortedReviews = visibleReviews.sort((a, b) => {
+				const aFormatted = new Date(a.reviewed_on);
+				const bFormatted = new Date(b.reviewed_on);
+				if (aFormatted > bFormatted) {
+					return 1;
+				} else {
+					return -1;
+				}
+			});
+		}
+
+		setVisibleReviews(sortedReviews);
+	};
 	return (
 		<Layout>
 			<div>
 				<ReviewHero />
 			</div>
 			<div style={{ padding: '10px 20px', margin: '0 auto' }}>
-				<Search handleSearch={handleSearch} />
+				<div className={styles.filters_container}>
+					<Search handleSearch={handleSearch} />
+					{visibleReviews.length ? (
+						sortAsc ? (
+							<>
+								<button onClick={(e) => handleSort()}>
+									<RiSortDesc />
+								</button>
+							</>
+						) : (
+							<>
+								<button onClick={(e) => handleSort()}>
+									<RiSortAsc />
+								</button>
+							</>
+						)
+					) : null}
+				</div>
 				{visibleReviews.length ? (
 					<ReviewGrid reviews={visibleReviews} />
 				) : (

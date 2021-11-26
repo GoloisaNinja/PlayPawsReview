@@ -20,3 +20,20 @@
 	font-weight: 600;
 	color: #217591;
 }
+.filters_container {
+	display: flex;
+	width: 100%;
+	margin-bottom: 50px;
+	> button:last-child {
+		margin-left: 15px;
+		cursor: pointer;
+		background: none;
+		outline: none;
+		border: none;
+		border: 1px solid #696969;
+		> svg {
+			font-size: 18px;
+			color: #217591;
+		}
+	}
+}

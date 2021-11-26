@@ -4,6 +4,14 @@ import styles from './review-card.module.scss';
 
 function ReviewCard({ tmdb, preview_text, reviewed_on }) {
 	const baseImageURL = `https://image.tmdb.org/t/p/original`;
+	const now = Date.now();
+	const reviewedOnArray = reviewed_on.split('-');
+	const formattedReviewedOn = new Date(
+		parseInt(reviewedOnArray[0]),
+		parseInt(reviewedOnArray[1] - 1),
+		parseInt(reviewedOnArray[2])
+	);
+	const elapsedDays = Math.round((now - formattedReviewedOn) / 1000 / 86400);
 	return (
 		<div className={styles.container}>
 			<h3 className={styles.title}>{tmdb.title}</h3>
@@ -20,11 +28,14 @@ function ReviewCard({ tmdb, preview_text, reviewed_on }) {
 				</div>
 			</div>
 			<h5 className={styles.date}>
-				reviewed on{' '}
-				{reviewed_on === `0001-01-01` ? (
+				reviewed{' '}
+				{reviewed_on === `9999-01-01` ? (
 					<span className={styles.coming_soon}>COMING SOON</span>
 				) : (
-					reviewed_on
+					<>
+						<span className={styles.days}>{elapsedDays}</span>
+						{` `}days ago
+					</>
 				)}
 			</h5>
 			<div className={styles.button_container}>
