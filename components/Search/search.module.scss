@@ -1,0 +1,27 @@
+.form_container {
+	margin-bottom: 50px;
+	> form {
+		display: flex;
+		justify-content: flex-start;
+		align-items: stretch;
+		> input {
+			font-size: 16px;
+			font-family: 'Inter', sans-serif;
+			padding: 5px;
+			border: 1px solid #ccc;
+			width: 100%;
+		}
+		> button {
+			background: none;
+			outline: none;
+			border: none;
+			-webkit-appearance: none;
+			background-color: #217591;
+			color: #fff;
+			> svg {
+				font-size: 18px;
+				vertical-align: middle;
+			}
+		}
+	}
+}
