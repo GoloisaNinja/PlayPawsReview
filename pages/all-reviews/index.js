@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../../components/Layout/layout';
-import ReviewHero from '../../components/ReviewHero/reveiw-hero';
+import ReviewHero from '../../components/ReviewHero/review-hero';
 import ReviewGrid from '../../components/ReviewGrid/review-grid';
 import Search from '../../components/Search/search';
 import styles from './index.module.scss';
@@ -9,8 +9,35 @@ import { RiSortAsc, RiSortDesc } from 'react-icons/ri';
 import axios from 'axios';
 
 function AllReviews({ reviews }) {
-	const [visibleReviews, setVisibleReviews] = useState([
-		...reviews.sort((a, b) => {
+	const [userSearchTerm, setUserSearchTerm] = useState('');
+	const [sortAsc, setSortAsc] = useState(false);
+
+	const handleSearch = (searchTerm) => {
+		const cleanSearchTerm = searchTerm.toLowerCase().trim();
+		setUserSearchTerm(cleanSearchTerm);
+	};
+
+	const filterBySearch = (review) => {
+		if (userSearchTerm) {
+			return review.tmdbData.title.toLowerCase().indexOf(userSearchTerm) >= 0;
+		}
+		return true;
+	};
+
+	let filteredReviews = reviews.filter(filterBySearch);
+
+	if (!sortAsc) {
+		filteredReviews.sort(function (a, b) {
+			const aFormatted = new Date(a.reviewed_on);
+			const bFormatted = new Date(b.reviewed_on);
+			if (aFormatted < bFormatted) {
+				return 1;
+			} else {
+				return -1;
+			}
+		});
+	} else {
+		filteredReviews.sort(function (a, b) {
 			const aFormatted = new Date(a.reviewed_on);
 			const bFormatted = new Date(b.reviewed_on);
 			if (aFormatted > bFormatted) {
@@ -18,46 +45,13 @@ function AllReviews({ reviews }) {
 			} else {
 				return -1;
 			}
-		}),
-	]);
-	const [userSearchTerm, setUserSearchTerm] = useState('');
-	const [sortAsc, setSortAsc] = useState(false);
-	const handleSearch = (searchTerm) => {
-		const cleanSearchTerm = searchTerm.toLowerCase().trim();
-		setUserSearchTerm(cleanSearchTerm);
-		setVisibleReviews(
-			reviews.filter((review) =>
-				review.tmdbData.title.toLowerCase().includes(cleanSearchTerm)
-			)
-		);
-	};
+		});
+	}
+
 	const handleSort = () => {
 		setSortAsc(!sortAsc);
-		let sortedReviews = [];
-		if (!sortAsc) {
-			sortedReviews = visibleReviews.sort((a, b) => {
-				const aFormatted = new Date(a.reviewed_on);
-				const bFormatted = new Date(b.reviewed_on);
-				if (aFormatted < bFormatted) {
-					return 1;
-				} else {
-					return -1;
-				}
-			});
-		} else {
-			sortedReviews = visibleReviews.sort((a, b) => {
-				const aFormatted = new Date(a.reviewed_on);
-				const bFormatted = new Date(b.reviewed_on);
-				if (aFormatted > bFormatted) {
-					return 1;
-				} else {
-					return -1;
-				}
-			});
-		}
-
-		setVisibleReviews(sortedReviews);
 	};
+
 	return (
 		<Layout>
 			<div>
@@ -66,7 +60,7 @@ function AllReviews({ reviews }) {
 			<div style={{ padding: '10px 20px', margin: '0 auto' }}>
 				<div className={styles.filters_container}>
 					<Search handleSearch={handleSearch} />
-					{visibleReviews.length ? (
+					{filteredReviews.length ? (
 						sortAsc ? (
 							<>
 								<button onClick={(e) => handleSort()}>
@@ -82,8 +76,8 @@ function AllReviews({ reviews }) {
 						)
 					) : null}
 				</div>
-				{visibleReviews.length ? (
-					<ReviewGrid reviews={visibleReviews} />
+				{filteredReviews.length ? (
+					<ReviewGrid reviews={filteredReviews} />
 				) : (
 					<div className={styles.container}>
 						<SiDatadog />
@@ -111,6 +105,17 @@ export async function getStaticProps() {
 			`${baseTMDBURL}/${reviewArray[i].media_id}?api_key=${apiKey}&language=en-US`
 		);
 		reviewArray[i]['tmdbData'] = response.data;
+	}
+	if (reviewArray.length) {
+		reviewArray.sort((a, b) => {
+			const aFormatted = new Date(a.reviewed_on);
+			const bFormatted = new Date(b.reviewed_on);
+			if (aFormatted > bFormatted) {
+				return 1;
+			} else {
+				return -1;
+			}
+		});
 	}
 	const reviews = reviewArray;
 	return {
