@@ -94,11 +94,10 @@ function AllReviews({ reviews }) {
 	);
 }
 export async function getStaticProps() {
+	const baseAPIUrl = process.env.NEXT_PUBLIC_BASEAPI_URL;
 	const baseTMDBURL = `https://api.themoviedb.org/3/movie`;
 	const apiKey = process.env.NEXT_PUBLIC_TMDB_APIKEY;
-	const dbResponse = await axios.get(
-		`https://paws-backend.herokuapp.com/reviews`
-	);
+	const dbResponse = await axios.get(`${baseAPIUrl}/reviews`);
 	let reviewArray = dbResponse.data;
 	for (let i = 0; i < reviewArray.length; i++) {
 		const response = await axios.get(

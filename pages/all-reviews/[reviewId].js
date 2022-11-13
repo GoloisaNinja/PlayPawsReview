@@ -41,10 +41,8 @@ export async function getStaticProps(context) {
 	const { params } = context;
 
 	// pairing the TMDB data with the imported review dummy data
-
-	const dbResponse = await axios.get(
-		`https://paws-backend.herokuapp.com/reviews`
-	);
+	const baseAPIUrl = process.env.NEXT_PUBLIC_BASEAPI_URL;
+	const dbResponse = await axios.get(`${baseAPIUrl}/reviews`);
 	const reviewArray = dbResponse.data;
 
 	const reviewId = params.reviewId;
@@ -74,9 +72,8 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-	const dbResponse = await axios.get(
-		`https://paws-backend.herokuapp.com/reviews`
-	);
+	const baseAPIUrl = process.env.NEXT_PUBLIC_BASEAPI_URL;
+	const dbResponse = await axios.get(`${baseAPIUrl}/reviews`);
 	const reviewArray = dbResponse.data;
 
 	const pathsWithParams = reviewArray.map((review) => ({
